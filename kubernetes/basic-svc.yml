@@ -1,12 +1,27 @@
 apiVersion: v1
 kind: Service
 metadata:
-   name: pydaemon-server-service
+  creationTimestamp: "2020-05-27T01:11:27Z"
+  labels:
+    app: pydaemon-server
+  name: pydaemon-server-service
+  namespace: default
+  resourceVersion: "1536524"
+  selfLink: /api/v1/namespaces/default/services/pydaemon-server-service
+  uid: fdd52b18-9fb6-11ea-a4bc-42010a80011a
 spec:
-   ports: 
-     -  port: 80
-        protocol: TCP
-        targetPort: 8080
-   selector: 
-      app: pydaemon-server
-      type: NodePort
+  clusterIP: 10.96.1.10
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30616
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: pydaemon-server
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 127.0.0.1

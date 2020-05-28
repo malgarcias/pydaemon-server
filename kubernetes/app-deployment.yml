@@ -17,8 +17,10 @@ spec:
     spec:
       containers:
       - image: marcelodevops/pydaemon-server
-        name: pydaemon-server
+        name: pydaemon-server-container
         ports:
-          - containerPort: 8080
+          - name: http
+            containerPort: 8080
+            protocol: TCP
         resources: {}
 status: {}
